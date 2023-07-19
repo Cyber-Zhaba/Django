@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %} Update {% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <h4 class="my-2">Настройки</h4>
+    <form action="" method="POST"> {% csrf_token %}
+      <div class="mb-3">
+        {{ form.as_p }}
+      </div>
+      <button class="btn btn-primary" type="submit">Сохранить</button>
+    </form>
+    <form action="{% url 'accounts:delete' %}" method="POST"> {% csrf_token %}
+      <button class="btn btn-danger my-3" type="submit">Удалить</button>
+    </form>
+  </div>
+</div>
+
+
+<div class="row my-5">
+  <div class="col-md-8 mx-auto">
+    <h4 class="my-2">Если вы не нашли подходящий набор Город, Специальность,
+      Вы можете заполнить форму ниже. После того, как необходимые данные будут добавленны,
+      Вы получите письмо на указанный адрес</h4>
+    <p>
+      <button aria-controls="collapseExample" aria-expanded="false" class="btn btn-primary" data-bs-target="#collapseExample"
+              data-bs-toggle="collapse" type="button">
+        Покаазать форму
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <form action="{% url 'accounts:contact' %}" method="POST"> {% csrf_token %}
+        <div class="mb-3">
+          {{ contact_form.as_p }}
+        </div>
+        <button class="btn btn-primary" type="submit">Отпрвить</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}}

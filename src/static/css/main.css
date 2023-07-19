@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Anime Ace v3';
+    src: url('../fonts/Anime Ace v3.ttf');
+}
+#brand {
+    font-family: 'Anime Ace v3';
+    color: #fff;
+}
